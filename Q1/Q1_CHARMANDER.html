@@ -46,6 +46,10 @@ document.getElementById("submit").onclick = function() {
   var p = document.getElementById("p").value;
   var c = p;
   var a = "VmxSR1lWVnRTbk5XV0dSWFlrVmFWVlpzVlRGV2JGVjRWbGhvVTFwNk1Eaz0=";
+  fetch('Q1_ANSWER.txt')
+  .then(response => response.text())
+  .then(data => {console.log(data)});
+  
   for (let i = 0; i < 5; i++) {
     c = btoa(c);
   };
