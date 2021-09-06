@@ -18,11 +18,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
 <!-- Header -->
 <header class="w3-container w3-green w3-center" style="padding:128px 16px">
-  <img src="../Index/switch_logo.png" width="500" height="auto">
+  <img src="../Index/switch_web_crawl.png" width="500" height="auto">
   <h1 class="w3-margin w3-jumbo">What is the 7th Book of the Bible?</h1>
   <form action="/action_page.php">
     <label for="p">Book:</label><br>
-    <input type="text" id="p" name="p" value=""><br>
+    <input type="text" id="passcode" value=""><br>
     </form> 
   <button id="submit" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="nextPageCheck()">I should read it sometime</button>
 </header>
@@ -47,7 +47,7 @@ function myFunction() {
   $("#passcode").keypress(function(event) {
     if (event.keyCode === 13) {
       event.preventDefault();
-      $("#getStarted").click();
+      $("#submit").click();
     }
   });
 </script>

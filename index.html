@@ -48,11 +48,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <h1>Welcome!</h1>
       <h5 class="w3-padding-32">Are you ready to have the time of your life? Do you have no clue what is happening? Perhaps the following block of text can help you</h5>
 
-      <p class="w3-text-grey">How tonight is going to work is that there will be a set of challenges you will need to complete in order to win the webcrawl. The general progression of the game is that you have to type in a passcode in order to advance to the next level</p>
+      <p class="w3-text-grey">To summarise, tonight I will be sending all of you all on an online scavenger hunt, hence the coined term <b><i>Webcrawl</i></b>. Each new webpage will have a question/challenge
+        you will need to answer/complete in order to get the secret code to move onto the next challenge. Don’t dawdle around though! You’ll be racing against every other group for the coveted first price of
+        PHBC Switch’s first ever Webcrawl! If you wish to have a taste of what the night will be like, click the demo tab at the top of the website. Lastly, remember to have fun! </p>
     </div>
 
     <div class="w3-third w3-center">
-      <img src="Index/spiderman_comic.jpg">
+      <img src="Index/spiderman_comic.jpg" class="padding" width="400" height="auto">
     </div>
   </div>
 </div>
@@ -61,7 +63,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
   <div class="w3-content">
     <div class="w3-third w3-center">
-      <img src="Index/squirtle.jpg">
+      <br><br><br><br><br>
+      <img src="Index/squirtle.jpg" width="300" height="auto">
       <figcaption>Pic of developer, plz don't make him sad.</figcaption>
     </div>
 
@@ -71,11 +74,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
       <p class="w3-text-grey">
         <ol>
-          <li>No source code, bruteforcing, etc.</li>
-          <li>No search engines, unless a specific challenge allows you to (e.g. Google, Safari, etc)</li>
-          <li>Remember to enter in all passcodes with no spaces and ALL CAPITAL LETTERS</li>
-          <li>If you ever accidentally close your page, don't worry! Ask a teammate for the url</li>
-          <li>Feel free to call me over for assistance if you need it! Just don't do it too much plz, there are many teams</li>
+          <li>Work as a team! Make sure that everyone is up to the same challenge as you before continuing.</li>
+          <li>Remember to enter in all passcodes with no spaces and ALL CAPITAL LETTERS. Also remember punctuation marks</li>
+          <li>If you accidentally close your page, click the Fast Travel button at the top and ask your teammate for the Fast Travel Code.</li>
+          <li>Please don’t try exploiting the website, I could’ve spent time into making a less exploitable website, but I instead used that time to create more challenges for you guys. I trust you guys to do the right thing!</li>
+          <li>Feel free to call me over for assistance if you need it! I can’t guarantee I’ll give you a hint every time, so use my help sparingly!</li>
         </ol> 
       </p>
     </div>
@@ -112,8 +115,9 @@ function doesFileExist(urlToFile) {
 }
 
 function fastTravel() {
-  let url = prompt("Please enter the question you wish to fast travel to:\nPlease Note: It should be done in the format of 'Q#_CODE' (e.g. Q3_HI)", "");
-  var exists = doesFileExist("https://asingham.github.io/" + url);
+  let code = prompt("Please enter the question you wish to fast travel to:\nPlease Note: It should be done in the format of 'Q#_CODE' (e.g. Q3_HI)", "");
+  let url = "https://asingham.github.io/" + code + ".html";
+  var exists = doesFileExist(url);
   if (exists == true) {
     location.href = url;
   } else {
