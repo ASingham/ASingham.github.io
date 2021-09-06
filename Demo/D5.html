@@ -16,6 +16,20 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-green w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="https://switchamazingrace.w3spaces.com/" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-green" onclick="fastTravel()">Fast Travel</a>
+    <a class="w3-bar-item w3-padding-large">Fast Travel Code: <b>D5</b></a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+  </div>
+</div>
+
 <!-- Header -->
 <header class="w3-container w3-green w3-center" style="padding:128px 16px">
   <img src="../Index/switch_web_crawl.png" width="500" height="auto">
@@ -39,6 +53,31 @@ function myFunction() {
     x.className += " w3-show";
   } else { 
     x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+<script>
+function doesFileExist(urlToFile) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('HEAD', urlToFile, false);
+    xhr.send();
+     
+    if (xhr.status == "404") {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function fastTravel() {
+  let code = prompt("Please enter the question you wish to fast travel to:\nPlease Note: It should be done in the format of 'Q#_CODE' (e.g. Q3_HI)", "");
+  let url = "https://asingham.github.io/" + code + ".html";
+  var exists = doesFileExist(url);
+  if (exists == true) {
+    location.href = url;
+  } else {
+    alert("Sorry that url doesn't exist!");
   }
 }
 </script>
