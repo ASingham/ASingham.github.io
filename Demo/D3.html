@@ -34,7 +34,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <label for="passcode">Song:</label><br>
     <input type="text" id="p" name="p" value=""><br>
     </form> 
-  <button id="getStarted" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Funky 🤠</button>
+  <button id="getStarted" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="nextPageCheck()"">Funky 🤠</button>
 </header>
 
 <center>
@@ -68,8 +68,17 @@ function volumeControl() {
 </script>
 
 <script>
-document.getElementById("getStarted").onclick = function() {
-  var p = document.getElementById("p").value;
+  $("#passcode").keypress(function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      $("#getStarted").click();
+    }
+  });
+</script>
+
+<script>
+function nextPageCheck() {
+  var p = document.getElementById("passcode").value;
   var c = p;
   var a = "Vmxaa01FNUdSbk5WYkZwWFlUTkNXRlZzVW5OVlJscHlWbTA1VTJKRldubFVNVnBEVlRBeFNHVkZZejA9";
   for (let i = 0; i < 5; i++) {

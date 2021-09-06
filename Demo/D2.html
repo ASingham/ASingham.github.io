@@ -14,6 +14,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </style>
 <body>
 
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-green w3-card w3-left-align w3-large">
@@ -34,7 +36,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <label for="passcode">First Name:</label><br>
     <input type="text" id="p" name="p" value=""><br>
     </form> 
-  <button id="getStarted" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">A nice name it is</button>
+  <button id="getStarted" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="nextPageCheck()">A nice name it is</button>
 </header>
 
 <!-- First Grid -->
@@ -71,8 +73,17 @@ function myFunction() {
 </script>
 
 <script>
-document.getElementById("getStarted").onclick = function() {
-  var p = document.getElementById("p").value;
+  $("#passcode").keypress(function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      $("#getStarted").click();
+    }
+  });
+</script>
+
+<script>
+function nextPageCheck() {
+  var p = document.getElementById("passcode").value;
   var c = p;
   var a = "Vm10YVYxSXhTbGRUYkZwc1VsaENWbGxVUmxaUFVUMDk=";
   for (let i = 0; i < 5; i++) {
