@@ -19,6 +19,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <div class="w3-bar w3-green w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-green" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="https://asingham.github.io/" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-green" onclick="fastTravel()">Fast Travel</a>
+    <a href="Demo/D1.html"class="w3-bar-item w3-button w3-padding-large w3-green">Demo</a>
   </div>
 
   <!-- Navbar on small screens -->
@@ -42,7 +44,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <div class="w3-content">
     <div class="w3-twothird">
       <h1>Welcome!</h1>
-      <h5 class="w3-padding-32">Are you ready to have the time of your life? Do you have no clue what is happening? Well, fellow me!</h5>
+      <h5 class="w3-padding-32">Are you ready to have the time of your life? Do you have no clue what is happening? Perhaps the following block of text can help you</h5>
 
       <p class="w3-text-grey">How tonight is going to work is that there will be a set of challenges you will need to complete in order to win the webcrawl. The general progression of the game is that you have to type in a passcode in order to advance to the next level</p>
     </div>
@@ -90,6 +92,30 @@ function myFunction() {
     x.className += " w3-show";
   } else { 
     x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+<script>
+function doesFileExist(urlToFile) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('HEAD', urlToFile, false);
+    xhr.send();
+     
+    if (xhr.status == "404") {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function fastTravel() {
+  let url = prompt("Please enter the question you wish to fast travel to:\nPlease Note: It should be done in the format of 'Q#_CODE' (e.g. Q3_HI)", "");
+  var exists = doesFileExist("https://asingham.github.io/" + url);
+  if (exists == true) {
+    location.href = url;
+  } else {
+    alert("Sorry that url doesn't exist!");
   }
 }
 </script>
