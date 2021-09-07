@@ -147,6 +147,7 @@ function fixInput(input) {
 
 function nextPageCheck() {
   var p = document.getElementById("passcode").value;
+  p = fixInput(p);
   var c = p;
   var a = "Vmxaa05GVXhXa0pRVkRBOQ==";
   for (let i = 0; i < 5; i++) {
