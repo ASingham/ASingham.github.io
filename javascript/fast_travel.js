@@ -4,7 +4,10 @@ function getFullFileUrl(input) {
       return input;
     } else if (input.length < 2) {
       return input;
-    } else if (input.charAt(0) === "D") {
+    }
+    
+    input = sanitiseInput(input);
+    if (input.charAt(0) === "D") {
       prefix = "demo/";
     } else {
       prefix = "questions/" + input.slice(0,2) + "/";
