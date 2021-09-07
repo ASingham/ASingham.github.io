@@ -14,7 +14,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </style>
 <body onload="volumeControl()">
 
-<script type="text/javascript" src="//code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
 
 <!-- Navbar -->
 <div class="w3-top">
@@ -53,7 +53,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <div class="w3-content">
     <div class="w3-third w3-center">
       <br><br><br><br><br>
-      <img src="../Index/squirtle.jpg" width="300" height="auto">
+      <img src="Index/squirtle.jpg" width="300" height="auto">
       <figcaption>Pic of developer, plz don't make him sad.</figcaption>
     </div>
 
@@ -63,8 +63,14 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
       <p class="w3-text-grey">
         <ol>
+          <li>Tips for entering in codes:
+            <ol style="list-style-type:lower-alpha">
+              <li>Codes are case insensitive. (e.g. "SECRETCODE" is the same as "secretcode", "SeCrEtcoDE", etc.)</li>
+              <li>Spaces are ignored. (e.g. “really long code” is the same as “reallylongcode”)</li>
+              <li>Punctuation matters! So remember to use it.</li>
+            </ol>
+          </li>
           <li>Work as a team! Make sure that everyone is up to the same challenge as you before continuing.</li>
-          <li>Remember to enter in all passcodes with no spaces, all punctuation marks, numbers and ALL CAPITAL LETTERS.</li>
           <li>If you accidentally close your page, click the Fast Travel button at the top and ask your teammate for the Fast Travel Code.</li>
           <li>Please don’t try exploiting the website, I could’ve spent time into making a less exploitable website, but I instead used that time to create more challenges for you guys. I trust you guys to do the right thing!</li>
           <li>Feel free to call me over for assistance if you need it! I can’t guarantee I’ll give you a hint every time, so use my help sparingly!</li>
@@ -91,29 +97,44 @@ function myFunction() {
 </script>
 
 <script>
-function doesFileExist(urlToFile) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('HEAD', urlToFile, false);
-    xhr.send();
-     
-    if (xhr.status == "404") {
-        return false;
-    } else {
-        return true;
-    }
-}
-
-function fastTravel() {
-  let code = prompt("Please enter the question you wish to fast travel to:\nPlease Note: It should be done in the format of 'Q#_CODE' (e.g. Q3_HI)", "");
-  let url = "https://asingham.github.io/" + code + ".html";
-  var exists = doesFileExist(url);
-  if (exists == true) {
-    location.href = url;
-  } else {
-    alert("Sorry that url doesn't exist!");
+  function getFullFileUrl(input) {
+      var prefix;
+      if (input === "") {
+        return input;
+      } else if (input.length < 2) {
+        return input;
+      } else if (input.charAt(0) === "D") {
+        prefix = "Demo/";
+      } else {
+        prefix = input.slice(0,2) + "/";
+      }
+      var url = "https://asingham.github.io/" + prefix + input + ".html";
+      return url;
   }
-}
-</script>
+  
+  function doesFileExist(urlToFile) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('HEAD', urlToFile, false);
+      xhr.send();
+       
+      if (xhr.status == "404") {
+          return false;
+      } else {
+          return true;
+      }
+  }
+  
+  function fastTravel() {
+    let code = prompt("Please enter the question you wish to fast travel to:\nPlease note: The code should look like Q#_CODE (e.g. Q3_HI)\n\nIf you don't know the code, ask your teammates to look in the top left of their screens", "");
+    var url = getFullFileUrl(code);
+    var exists = doesFileExist(url);
+    if (exists == true) {
+      location.href = url;
+    } else {
+      alert("Sorry that url doesn't exist!");
+    }
+  }
+  </script>
 
 <script>
 function volumeControl() {
