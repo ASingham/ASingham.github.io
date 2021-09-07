@@ -14,27 +14,38 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </style>
 <body>
 
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../javascript/check_answer.js"></script>
+<script type="text/javascript" src="../../javascript/fast_travel.js"></script>
+<script type="text/javascript" src="../../javascript/menu_toggle.js"></script>
+<script type="text/javascript" src="../../javascript/sanitise_input.js"></script>
+
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-green w3-card w3-left-align w3-large">
-    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="https://switchamazingrace.w3spaces.com/" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-left w3-padding-large w3-hover-white w3-large w3-white" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="https://asingham.github.io/" class="w3-bar-item w3-button w3-padding-large w3-white w3-hide-small">Home</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-green w3-hide-small" onclick="fastTravel()">Fast Travel</a>
+    <a class="w3-bar-item w3-padding-large">Fast Travel Code: <b>Q2_ITSEPICTIME</b></a>
   </div>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="https://asingham.github.io/" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-white" onclick="fastTravel()">Fast Travel</a>
+    <a class="w3-bar-item w3-padding-large">Fast Travel Code: <b>Q2_ITSEPICTIME</b></a>
   </div>
 </div>
 
 <!-- Header -->
 <header class="w3-container w3-green w3-center" style="padding:128px 16px">
-  <img src="../Index/switch_web_crawl.png">
+  <img src="../../images/switch_web_crawl.png" style="max-width:100%;height:auto;">
   <h1 class="w3-margin w3-jumbo">What is (one of) Sachin's favourite anime?</h1>
   <form action="/action_page.php">
-    <label for="passcode">Anime:</label><br>
-    <input type="text" id="p" name="p" value=""><br>
+    <label for="p">Anime:</label><br>
+    <input type="text" id="passcode" value=""><br>
     </form> 
-  <button id="getStarted" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Wow great pick Sachin!</button>
+  <button id="submit" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="nextPageCheck()">Wow great pick Sachin!</button>
 </header>
 
 <!-- First Grid -->
@@ -44,46 +55,55 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <h1>Hint!</h1>
       <h5 class="w3-padding-32">My Anime List</h5>
 
-      <p class="w3-text-grey">MyAnimeList, often abbreviated as MAL, is an anime and manga social networking and social cataloging application website run by volunteers. The site provides its users with a list-like system to organize and score anime and manga. Sachin has a MAL account
-        and rates all the animes he watches. Here is a <a href="https://myanimelist.net/animelist/SirChino?status=7">link to his list.</a> If you think he has multiple favourites, try guess them all.
+      <p class="w3-text-grey"> MyAnimeList, often abbreviated as MAL, is an anime and manga social networking and social cataloging application website run by volunteers. The site provides its users with a list-like system to organize and score anime and manga. Sachin has a MAL account
+        and rates all the animes he watches. Here is a <a href="https://myanimelist.net/animelist/SirChino?status=7">link to his list.</a>
       </p>
     </div>
 
     <div class="w3-third w3-center">
-      <img src="mal_logo.png">
+      <img src="mal_logo.png" style="max-width:100%;height:auto;">
     </div>
   </div>
 </div>
+
+<center>
+  <object type="text/html" data="../../html/rules.html" style="width:100%;height:680px;">
+  <p>Rules did not load.</p>
+  </object>
+</center>
 
 <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
     <h1 class="w3-margin w3-xlarge">Quote of the Day: See you Space Cowboy...</h1>
 </div>
 
 <script>
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
+  $("#passcode").keypress(function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      $("#submit").click();
+    }
+  });
 </script>
 
 <script>
-document.getElementById("getStarted").onclick = function() {
-  var p = document.getElementById("p").value;
+function nextPageCheck() {
+  var p = document.getElementById("passcode").value;
+  var a1 = "Vm10YVZrNVdSWGhXYTJSVllraENVMVJWWkc5VlZsSlhWV3RLYTJSNk1Eaz0=";
+  var a2 = "VmxjeE5GWXhVbGRWYTFwT1ZsWndXRlZzVm1GVWJGWlhWbXBTVTFKck5VZFdiWE14VmtaYWNrNVdXbFZOYmxKTVZsUkdVbVZHVm5KaVJrNVhZVE5DUzFaclVrSk9Wa3BTVUZRd1BRPT0="
+  var a3 = "Vm14V1YyTXhVWGhUV0doU1lrVktWbGxVU2xOV2JGVjNWbXhrVW1KR1NubFphMVV4Vld4YWMxTnJkRmRTUlVWM1ZVWkZPVkJSUFQwPQ=="
   var c = p;
-  var a = "Vm10YVZrNVdSWGhXYTJSVllraENVMVJWWkc5VlZsSlhWV3RLYTJSNk1Eaz0=";
-  for (let i = 0; i < 5; i++) {
-    c = btoa(c);
-  }
-  if (c == a) {
-    location.href = "../Q3/Q3_" + p + ".html";
+  var c = sanitiseInput(p);
+  var result1 = checkAnswer(c, a1);
+  var result2 = checkAnswer(c, a2);
+  var result3 = checkAnswer(c, a3);
+  if (result1 == true || result2 == true || result3 == true) {
+    for (let i = 0; i < 5; i++) {
+      a1 = atob(a1);
+      location.href = "../Q3/Q3_" + a1 + ".html";
+    }
   } else {
-    alert("That may be your favourite, but it isn't Sachin's.");
-  };
+    alert(p + " may be your favourite, but it isn't Sachin's.");
+  }
 }
 </script>
 

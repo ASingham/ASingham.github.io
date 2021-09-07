@@ -14,43 +14,67 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </style>
 <body>
 
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../javascript/check_answer.js"></script>
+<script type="text/javascript" src="../../javascript/fast_travel.js"></script>
+<script type="text/javascript" src="../../javascript/menu_toggle.js"></script>
+<script type="text/javascript" src="../../javascript/sanitise_input.js"></script>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-green w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-left w3-padding-large w3-hover-white w3-large w3-white" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="https://asingham.github.io/" class="w3-bar-item w3-button w3-padding-large w3-white w3-hide-small">Home</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-green w3-hide-small" onclick="fastTravel()">Fast Travel</a>
+    <a class="w3-bar-item w3-padding-large">Fast Travel Code: <b>Q1_CHARMANDER</b></a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="https://asingham.github.io/" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-white" onclick="fastTravel()">Fast Travel</a>
+    <a class="w3-bar-item w3-padding-large">Fast Travel Code: <b>Q1_CHARMANDER</b></a>
+  </div>
+</div>
+
 <!-- Header -->
 <header class="w3-container w3-green w3-center" style="padding:128px 16px">
-  <img src="../Index/switch_logo.png" width=400 height=auto>
+  <img src="../../images/switch_web_crawl.png" style="max-width:100%;height:auto;">
   <h1 class="w3-margin w3-jumbo">What was the previous quote of the day?</h1>
   <form action="/action_page.php">
-    <label for="p">Don't include the emoji</label><br>
-    <input type="text" id="p" name="p" value=""><br>
+    <label for="p">Profound Quote (without emoji):</label><br>
+    <input type="text" id="passcode" value=""><br>
     </form> 
-  <button id="submit" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Send it!</button>
+  <button id="submit" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="nextPageCheck()">Send it!</button>
 </header>
+
+<center>
+  <object type="text/html" data="../../html/rules.html" style="width:100%;height:680px;">
+  <p>Rules did not load.</p>
+  </object>
+</center>
 
 <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
     <h1 class="w3-margin w3-xlarge">Quote of the Day: This is not the previous quote of the day</h1>
 </div>
 
 <script>
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
+$("#passcode").keypress(function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    $("#submit").click();
   }
-}
+});
 </script>
 
 <script>
-document.getElementById("submit").onclick = function() {
-  var p = document.getElementById("p").value;
-  var c = p;
+function nextPageCheck() {
+  var p = document.getElementById("passcode").value;
   var a = "VmxSR1lWVnRTbk5XV0dSWFlrVmFWVlpzVlRGV2JGVjRWbGhvVTFwNk1Eaz0=";
-  for (let i = 0; i < 5; i++) {
-    c = btoa(c);
-  };
-  if (c == a) {
-    location.href = "../Q2/Q2_" + p.substring(0,2) + p.substring(3) + ".html";
+  var c = sanitiseInput(p);
+  var result = checkAnswer(c, a);
+  if (result == true) {
+    location.href = "../Q2/Q2_" + c.substring(0,2) + c.substring(3) + ".html";
   } else {
     alert("Huh, I don't remember writing that.");
   };
