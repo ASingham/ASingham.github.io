@@ -7,7 +7,7 @@ function getFullFileUrl(input) {
     } else if (input.charAt(0) === "D") {
       prefix = "Demo/";
     } else {
-      prefix = input.slice(0,2) + "/";
+      prefix = "Questions/" + input.slice(0,2) + "/";
     }
     var url = "https://asingham.github.io/" + prefix + input + ".html";
     return url;
