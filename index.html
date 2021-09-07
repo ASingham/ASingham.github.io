@@ -15,6 +15,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <body>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="check_answer.js"></script>
+<script type="text/javascript" src="fast_travel.js"></script>
+<script type="text/javascript" src="menu_toggle.js"></script>
 
 <!-- Navbar -->
 <div class="w3-top">
@@ -98,58 +101,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </div>
 
 <script>
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-</script>
-
-<script>
-function getFullFileUrl(input) {
-    var prefix;
-    if (input === "") {
-      return input;
-    } else if (input.length < 2) {
-      return input;
-    } else if (input.charAt(0) === "D") {
-      prefix = "Demo/";
-    } else {
-      prefix = input.slice(0,2) + "/";
-    }
-    var url = "https://asingham.github.io/" + prefix + input + ".html";
-    return url;
-}
-
-function doesFileExist(urlToFile) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('HEAD', urlToFile, false);
-    xhr.send();
-     
-    if (xhr.status == "404") {
-        return false;
-    } else {
-        return true;
-    }
-}
-
-function fastTravel() {
-  let code = prompt("Please enter the question you wish to fast travel to:\nPlease note: The code should look like Q#_CODE (e.g. Q3_HI)\n\nIf you don't know the code, ask your teammates to look in the top left of their screens", "");
-  var url = getFullFileUrl(code);
-  var exists = doesFileExist(url);
-  if (exists == true) {
-    location.href = url;
-  } else {
-    alert("Sorry that url doesn't exist!");
-  }
-}
-</script>
-
-<script>
 $("#passcode").keypress(function(event) {
   if (event.keyCode === 13) {
     event.preventDefault();
@@ -159,25 +110,14 @@ $("#passcode").keypress(function(event) {
 </script>
 
 <script>
-// Removes spaces and changes the input to uppercase letters
-function fixInput(input) {
-  input = input.split(" ").join("");
-  input = input.toUpperCase();
-  return input;
-}
-
 function nextPageCheck() {
   var p = document.getElementById("passcode").value;
-  p = fixInput(p);
-  var c = p;
   var a = "VmxaU1EySXhSbk5XYmtwT1ZsVndWbGxVUmt0U01WcFlXWHBzVVZWVU1Eaz0=";
-  for (let i = 0; i < 5; i++) {
-    c = btoa(c);
-  }
-  if (c == a) {
+  var result = checkAnswer(p, a);
+  if (result == true) {
     location.href = "Q1/Q1_" + p + ".html";
   } else {
-    alert("Not yet young padawan.");
+    alert("Not yet young padawan." + p);
   };
 }
 </script>
