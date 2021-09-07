@@ -153,6 +153,13 @@ function myFunction() {
 </script>
 
 <script>
+// Removes spaces and changes the input to uppercase letters
+function fixInput(input) {
+  input = input.split(" ").join("");
+  input = input.toUpperCase();
+  return input;
+}
+
 function nextPageCheck() {
   var p = document.getElementById("passcode").value;
   var c = p;
