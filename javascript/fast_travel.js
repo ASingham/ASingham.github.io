@@ -9,8 +9,10 @@ function getFullFileUrl(input) {
     input = sanitiseInput(input);
     if (input.charAt(0) === "D") {
       prefix = "demo/";
-    } else {
+    } else if (input.charAt(2) === "_") {
       prefix = "questions/" + input.slice(0,2) + "/";
+    } else {
+      prefix = "questions/" + input.slice(0,3) + "/";
     }
     var url = "https://asingham.github.io/" + prefix + input + ".html";
     return url;
