@@ -37,6 +37,6 @@ function fastTravel() {
   if (exists == true) {
     location.href = url;
   } else {
-    alert("Sorry that url doesn't exist!");
+    alert("Sorry, you've typed in an invalid code!");
   }
 }
