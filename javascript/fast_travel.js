@@ -31,7 +31,7 @@ function doesFileExist(urlToFile) {
 }
 
 function fastTravel() {
-  let code = prompt("Please enter the question you wish to fast travel to:\nPlease note: The code should look like Q#_CODE (e.g. Typing in D1 will take you to the first Demo Question)\n\nIf you don't know the code, ask your teammates to look in the top left of their screens", "");
+  let code = prompt("Please enter the question you wish to fast travel to:\n(e.g. Typing in D1 will take you to the first Demo Question)\n\nIf you don't know the code, ask your teammates to look in the top left of their screens", "");
   var url = getFullFileUrl(code);
   var exists = doesFileExist(url);
   if (exists == true) {
