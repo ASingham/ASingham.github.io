@@ -11,6 +11,25 @@
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
+
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>
 <body>
 
@@ -41,27 +60,35 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <header class="w3-container w3-green w3-center" style="padding:128px 16px">
   <img src="../../images/switch_web_crawl.png" style="max-width:100%;height:auto;">
   <h1 class="w3-margin w3-jumbo">What are all the differences in the below photos?</h1>
-  <form action="/action_page.php">
+  <form>
     <label for="p">Differences:</label><br>
-    <input type="text" id="passcode" value=""><br>
-    </form> 
+    <input type="text" id="1" value=""><br><br>
+    <input type="text" id="2" value=""><br><br>
+    <input type="text" id="3" value=""><br><br>
+    <input type="text" id="4" value=""><br><br>
+    <input type="text" id="5" value=""><br><br>
+  </form> 
   <button id="submit" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="nextPageCheck()">So creative!</button>
 </header>
 
 <!-- First Grid -->
 <div class="w3-row-padding w3-padding-64 w3-container">
-  <div class="w3-content">
-    <div class="w3-twothird">
-      <h1>Hint!</h1>
-      <h5 class="w3-padding-32">CHANGE THIS</h5>
+  <div class="w3-content w3-center">
+      <h1>Guys!</h1>
+      <h5 class="w3-padding-32">Your ingredients were so good that you straight knocked Sachin out with a delicious spaghetti party</h5>
 
-      <p class="w3-text-grey"> CHANGE THIS
+      <p class="w3-text-grey"> Aw man someone's been messing around with his stuff. Could you please jot down what people changed in Sachin's room for him? That way when he wakes up from his food coma he knows what to fix.
+        Please note that all differences are only one or two words. Also write down what appears/disappears in respect to the second image. Order doesn't matter.
       </p>
-    </div>
+  </div>
+</div>
 
-    <div class="w3-third w3-center">
-      <img src="CHANGE THIS" style="max-width:100%;height:auto;">
-    </div>
+<div class="row">
+  <div class="column">
+    <img src="sachin.jpg" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="penguin.jpg" style="width:100%">
   </div>
 </div>
 
@@ -72,11 +99,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </center>
 
 <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
-    <h1 class="w3-margin w3-xlarge">Quote of the Day: There's 2 too many Sachin's on my screen right now</h1>
+    <h1 class="w3-margin w3-xlarge">Quote of the Day: There's one too many Sachin's on my screen right now</h1>
 </div>
 
 <script>
-  $("#passcode").keypress(function(event) {
+  $("#1").keypress(function(event) {
     if (event.keyCode === 13) {
       event.preventDefault();
       $("#submit").click();
@@ -85,16 +112,84 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </script>
 
 <script>
+  $("#2").keypress(function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      $("#submit").click();
+    }
+  });
+</script>
+
+<script>
+  $("#3").keypress(function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      $("#submit").click();
+    }
+  });
+</script>
+
+<script>
+  $("#4").keypress(function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      $("#submit").click();
+    }
+  });
+</script>
+
+<script>
+  $("#5").keypress(function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      $("#submit").click();
+    }
+  });
+</script>
+
+<script>
+function checkDifferences(passcodes) {
+  var d1 = "Vm14V1YxWXhVWGhUV0doWFlUTkNWbGR1YjNkUFVUMDk=";
+  var d2 = "Vm14U1IxWXhVWGhXV0dSVllrVTFWRlpzV21GVlFUMDk=";
+  var d3 = "Vm14U1IxVXhUbk5TV0dSclVtNUNWbGxZY0hOV2JGWnpVbFJzVVZWVU1Eaz0=";
+  var d4 = "VmxkMFZrNVdTbGRYYkZwUVVrUkJPUT09";
+  var d5 = "Vm0xd1ExWXhSWGhTV0dSVFlYcFJPUT09";
+  const differences = [d1, d2, d3, d4, d5];
+
+  var correct = 0;
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < 5; j++) {
+      var c = sanitiseInput(passcodes[j]);
+      var result = checkAnswer(c, differences[i]);
+      if (result == true) {
+        correct = correct + 1;
+        break;
+      }
+    }
+  }
+  return correct;
+}
+</script>
+
+<script>
 function nextPageCheck() {
-  var p = document.getElementById("passcode").value;
-  var a = "CHANGE THIS";
-  var c = p;
-  var c = sanitiseInput(p);
-  var result = checkAnswer(c, a);
-  if (result == true) {
-    location.href = "../Q20/Q20_" + c + ".html";
+  let num_correct = 0;
+  var p1 = document.getElementById("1").value;
+  var p2 = document.getElementById("2").value;
+  var p3 = document.getElementById("3").value;
+  var p4 = document.getElementById("4").value;
+  var p5 = document.getElementById("5").value;
+  const passcodes = [p1, p2, p3, p4, p5];
+
+  num_correct = checkDifferences(passcodes);
+  if (num_correct == 5) {
+    var url = "Vm14V1YxWXhVWGhUV0doWFlUTkNWbGR1YjNkUFVUMDk=";
+    for (let i = 0; i < 5; i++) {
+      url = atob(d1);
+    }
+    location.href = "../Q20/Q20_" + url + ".html";
   } else {
-    alert("And you thought you knew Sachin well");
+    alert("You've gotten " + num_correct + " difference correct!");
   };
 }
 </script>
