@@ -53,14 +53,24 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <div class="w3-content">
     <div class="w3-twothird">
       <h1>Help!</h1>
-      <h5 class="w3-padding-32">Sachin is hosting an awesome spaghetti party, but he forgot what ingredients he needed</h5>
+      <h5 class="w3-padding-32">Sachin is hosting an awesome spaghetti party, but he forgot what ingredients he needed. Can you help him find the recipe and show him what ingredients he needs?</h5>
 
-      <p class="w3-text-grey"> CHANGE THIS
+      <p class="w3-text-grey"> Here's how you can help Sachin:
+        <ol>
+          <li>Find the filled in recipe card</li>
+          <li>Take a screenshot of your breakout room where each person is holding a unique ingredient Sachin needs
+            <ol style="list-style-type:lower-alpha">
+              <li>For those without webcams, draw yourself holding an ingredient and send it to your group</li>
+              <li>Then get one member to combine the breakout room screenshot with all drawn images</li>
+            </ol>
+          </li>
+          <li>Send the photo to Sachin and he will thank you with the code to the next challenge!</li>
+        </ol>
       </p>
     </div>
 
     <div class="w3-third w3-center">
-      <img src="CHANGE THIS" style="max-width:100%;height:auto;">
+      <img src="blank_recipe.jpg" style="max-width:100%;height:auto;">
     </div>
   </div>
 </div>
@@ -72,7 +82,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </center>
 
 <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
-    <h1 class="w3-margin w3-xlarge">Quote of the Day: CHANGE THIS</h1>
+    <h1 class="w3-margin w3-xlarge">Quote of the Day: Ravioli ravioli, give me the formuoli</h1>
 </div>
 
 <script>
@@ -87,14 +97,14 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <script>
 function nextPageCheck() {
   var p = document.getElementById("passcode").value;
-  var a = "CHANGE THIS";
+  var a = "Vmxkd1IxTXhTbk5TYkdSV1lUQTFVMVp0ZEhkV1JsVjRWbXhrVmsxV1dubFdiWFJoVlRGd05rMUVhejA9";
   var c = p;
   var c = sanitiseInput(p);
   var result = checkAnswer(c, a);
   if (result == true) {
-    location.href = "CHANGE THIS";
+    location.href = "../Q18/Q18_" + c + ".html";
   } else {
-    alert("CHANGE THIS");
+    alert("Spongeboy Me Bob, they don't have the formuoli");
   };
 }
 </script>
