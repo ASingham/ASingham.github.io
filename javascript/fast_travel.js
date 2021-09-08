@@ -11,7 +11,6 @@ function getFullFileUrl(input) {
       prefix = "demo/";
     } else if (input.charAt(2) === "_") {
       prefix = "questions/" + input.slice(0,2) + "/";
-      console.log("hi");
     } else {
       prefix = "questions/" + input.slice(0,3) + "/";
     }
