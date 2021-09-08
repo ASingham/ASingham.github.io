@@ -96,7 +96,7 @@ function nextPageCheck() {
   var c = sanitiseInput(p);
   var result = checkAnswer(c, a);
   if (result == true) {
-    location.href = "../Q10/Q10_" + p.substring(18,33) + ".html";
+    location.href = "../Q10/Q10_" + c.substring(18,33) + ".html";
   } else {
     alert("Oh man, we're going to be here a long time aren't we...");
   };

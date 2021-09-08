@@ -26,45 +26,27 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-left w3-padding-large w3-hover-white w3-large w3-white" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="https://asingham.github.io/" class="w3-bar-item w3-button w3-padding-large w3-white w3-hide-small">Home</a>
     <a class="w3-bar-item w3-button w3-padding-large w3-green w3-hide-small" onclick="fastTravel()">Fast Travel</a>
-    <a class="w3-bar-item w3-padding-large w3-hide-small">Fast Travel Code: <b>Q12_SUPERLATIVEHEROES</b></a>
+    <a class="w3-bar-item w3-padding-large w3-hide-small">Fast Travel Code: <b>Q14_JESSIEKIM</b></a>
   </div>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
     <a href="https://asingham.github.io/" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
     <a class="w3-bar-item w3-button w3-padding-large w3-white" onclick="fastTravel()">Fast Travel</a>
-    <a class="w3-bar-item w3-padding-large">Fast Travel Code: <b>Q12_SUPERLATIVEHEROES</b></a>
+    <a class="w3-bar-item w3-padding-large">Fast Travel Code: <b>Q14_JESSIEKIM</b></a>
   </div>
 </div>
 
 <!-- Header -->
 <header class="w3-container w3-green w3-center" style="padding:128px 16px">
   <img src="../../images/switch_web_crawl.png" style="max-width:100%;height:auto;">
-  <h1 class="w3-margin w3-jumbo">What was the first song added to Adam's most liked playlist on Spotify in 2020?</h1>
+  <h1 class="w3-margin w3-jumbo">What song is being played during the KYCK21 Promo Video?</h1>
   <form action="/action_page.php">
     <label for="p">Song:</label><br>
     <input type="text" id="passcode" value=""><br>
     </form> 
-  <button id="submit" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="nextPageCheck()">gr👀ve</button>
+  <button id="submit" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="nextPageCheck()">Just a regular button</button>
 </header>
-
-<!-- First Grid -->
-<div class="w3-row-padding w3-padding-64 w3-container">
-  <div class="w3-content">
-    <div class="w3-twothird">
-      <h1>Hint!</h1>
-      <h5 class="w3-padding-32">Spotify</h5>
-
-      <p class="w3-text-grey">Spotify is a Swedish audio streaming and media services provider founded on 23 April 2006 by Daniel Ek and Martin Lorentzon. It is the world's largest music streaming service provider, 
-        with over 365 million monthly active users, including 165 million paying subscribers, as of June 2021. Adam uses this platform and you can find his <a href="https://open.spotify.com/user/1242189431?si=ff85c8caa4834a42"> Spotify account here.</a>
-      </p>
-    </div>
-
-    <div class="w3-third w3-center">
-      <img src="spotify_logo.png" style="max-width:100%;height:auto;">
-    </div>
-  </div>
-</div>
 
 <center>
   <object type="text/html" data="../../html/rules.html" style="width:100%;height:680px;">
@@ -73,31 +55,30 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </center>
 
 <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
-    <h1 class="w3-margin w3-xlarge">Quote of the Day: I didn't listen to it</h1>
+    <h1 class="w3-margin w3-xlarge">Quote of the Day: Say what you want, but I liked the online hosts</h1>
 </div>
 
 <script>
-  $("#passcode").keypress(function(event) {
-    if (event.keyCode === 13) {
-      event.preventDefault();
-      $("#submit").click();
-    }
-  });
+$("#passcode").keypress(function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    $("#submit").click();
+  }
+});
 </script>
 
 <script>
 function nextPageCheck() {
   var p = document.getElementById("passcode").value;
-  var a = "Vmxaa01HTXhWWGhUYTFwcFVsWndVMWxVUm1GU01WcFpXWHBzVVZWVU1Eaz0=";
-  var c = p;
+  var a = "Vm1wR1ZrNVdXbk5XYmtwc1VtdEtXRmxVUm1GUk1WcHhVV3RrVlZKcmNGZFViRnBUVmxaYVYxWlVhejA9";
   var c = sanitiseInput(p);
   var result = checkAnswer(c, a);
   if (result == true) {
-    location.href = "../Q13/Q13_" + c + ".html";
+    location.href = "../Q14/Q14_" + c + ".html";
   } else {
-    alert("Oh man, I don't even know if he likes that song");
+    alert("Ya'll really sleepin' on this");
   };
-}
+}S
 </script>
 
 </body>
