@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Switch Web Crawl</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+</style>
+<body onload="volumeControl()">
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../javascript/check_answer.js"></script>
+<script type="text/javascript" src="../../javascript/fast_travel.js"></script>
+<script type="text/javascript" src="../../javascript/menu_toggle.js"></script>
+<script type="text/javascript" src="../../javascript/sanitise_input.js"></script>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-green w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-left w3-padding-large w3-hover-white w3-large w3-white" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="https://asingham.github.io/" class="w3-bar-item w3-button w3-padding-large w3-white w3-hide-small">Home</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-green w3-hide-small" onclick="fastTravel()">Fast Travel</a>
+    <a class="w3-bar-item w3-padding-large w3-hide-small">Fast Travel Code: <b>Q7_TRICKEDYA</b></a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="https://asingham.github.io/" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-white" onclick="fastTravel()">Fast Travel</a>
+    <a class="w3-bar-item w3-padding-large">Fast Travel Code: <b>Q7_TRICKEDYA</b></a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-green w3-center" style="padding:128px 16px">
+  <img src="../../images/switch_web_crawl.png" style="max-width:100%;height:auto;">
+  <h1 class="w3-margin w3-jumbo">Who appears in this video that isn't in Danny's family?</h1>
+  <form action="/action_page.php">
+    <label for="p">Character:</label><br>
+    <input type="text" id="passcode" value=""><br>
+    </form> 
+  <button id="submit" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="nextPageCheck()">Sp00py</button>
+</header>
+
+<center>
+    <video id="video" style="max-width:100%;height:auto;" controls>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video element.
+    </video>
+</center>
+
+<center>
+  <object type="text/html" data="../../html/rules.html"  style="width:100%;height:680px;">
+  <p>Rules did not load.</p>
+  </object>
+</center>
+
+<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+    <h1 class="w3-margin w3-xlarge">Quote of the Day: 41 Ghosts appear in this video</h1>
+</div>
+
+<script>
+    function volumeControl() {
+        var vid = document.getElementById("video");
+        vid.volume = 0.2;
+    }
+</script>
+
+<script>
+  $("#passcode").keypress(function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      $("#submit").click();
+    }
+  });
+</script>
+
+<script>
+function nextPageCheck() {
+  var p = document.getElementById("passcode").value;
+  var a = "VmxkMFYxSXhXa2RVYTFwVVlUQndXVlZ0ZUV0U01WcFlXWHBzVVZWVU1Eaz0=";
+  var c = sanitiseInput(p);
+  var result = checkAnswer(c, a);
+  if (result == true) {
+    location.href = "../Q8/Q8_" + p + ".html";
+  } else {
+    alert("Oooo spooky error prompt");
+  };
+}
+</script>
+
+</body>
+</html>

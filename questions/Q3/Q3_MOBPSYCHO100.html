@@ -26,31 +26,31 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-left w3-padding-large w3-hover-white w3-large w3-white" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="https://asingham.github.io/" class="w3-bar-item w3-button w3-padding-large w3-white w3-hide-small">Home</a>
     <a class="w3-bar-item w3-button w3-padding-large w3-green w3-hide-small" onclick="fastTravel()">Fast Travel</a>
-    <a class="w3-bar-item w3-padding-large w3-hide-small">Fast Travel Code: <b>CHANGE THIS</b></a>
+    <a class="w3-bar-item w3-padding-large w3-hide-small">Fast Travel Code: <b>Q3_MOBPSYCHO100</b></a>
   </div>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
     <a href="https://asingham.github.io/" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
     <a class="w3-bar-item w3-button w3-padding-large w3-white" onclick="fastTravel()">Fast Travel</a>
-    <a class="w3-bar-item w3-padding-large">Fast Travel Code: <b>CHANGE THIS</b></a>
+    <a class="w3-bar-item w3-padding-large">Fast Travel Code: <b>Q3_MOBPSYCHO100</b></a>
   </div>
 </div>
 
 <!-- Header -->
 <header class="w3-container w3-green w3-center" style="padding:128px 16px">
   <img src="../../images/switch_web_crawl.png" style="max-width:100%;height:auto;">
-  <h1 class="w3-margin w3-jumbo">CHANGE THIS?</h1>
+  <h1 class="w3-margin w3-jumbo">What is the name of this song?</h1>
   <form action="/action_page.php">
-    <label for="p">CHANGE THIS:</label><br>
+    <label for="p">Song:</label><br>
     <input type="text" id="passcode" value=""><br>
     </form> 
-  <button id="submit" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="nextPageCheck()">CHANGE THIS</button>
+  <button id="submit" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="nextPageCheck()">What a tune</button>
 </header>
 
 <center>
     <audio id="song" controls>
-        <source src="CHANGE THIS" type="audio/mpeg">
+        <source src="song.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 </center>
@@ -62,7 +62,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </center>
 
 <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
-    <h1 class="w3-margin w3-xlarge">Quote of the Day: CHANGE THIS</h1>
+    <h1 class="w3-margin w3-xlarge">Quote of the Day: What room can ghosts not enter?</h1>
 </div>
 
 <script>
@@ -84,14 +84,14 @@ function volumeControl() {
 <script>
 function nextPageCheck() {
   var p = document.getElementById("passcode").value;
-  var a = "CHANGE THIS";
+  var a = "VmxkMFYxSXhVWGhTV0dSWFlUTkNWbGxyV2t0VGJGWnpWbXBTVkdKR2NIbFphMVUxVlRBeFZtTkdSbGRTUlVZelZVWkZPVkJSUFQwPQ==";
   var c = p;
   var c = sanitiseInput(p);
   var result = checkAnswer(c, a);
   if (result == true) {
-    location.href = "CHANGE THIS";
+    location.href = "../Q4/Q4_" + c + ".html";
   } else {
-    alert("CHANGE THIS");
+    alert("I don't think it's " + p);
   };
 }
 </script>
