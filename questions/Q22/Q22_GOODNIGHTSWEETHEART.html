@@ -60,8 +60,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <img src="../../images/switch_web_crawl.png" style="max-width:100%;height:auto;">
   <h1 class="w3-margin w3-jumbo">Can someone translate these movies for me?</h1>
   <form action="/action_page.php">
-    <label for="p">Translation:</label><br>
-    <input type="text" id="passcode" value=""><br>
+    <label for="p">Movies:</label><br>
+      <input type="text" id="1" value=""><br><br>
+      <input type="text" id="2" value=""><br><br>
+      <input type="text" id="3" value=""><br><br>
+      <input type="text" id="4" value=""><br><br>
+      <input type="text" id="5" value=""><br><br>
+      <input type="text" id="6" value=""><br><br>
+      <input type="text" id="7" value=""><br><br>
+      <input type="text" id="8" value=""><br><br>
+      <input type="text" id="9" value=""><br><br>
     </form> 
   <button id="submit" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="nextPageCheck()">Yeah I've watched all of these</button>
 </header>
@@ -125,7 +133,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </div>
 
 <script>
-  $("#passcode").keypress(function(event) {
+  $("#1").keypress(function(event) {
     if (event.keyCode === 13) {
       event.preventDefault();
       $("#submit").click();
@@ -134,16 +142,130 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </script>
 
 <script>
+  $("#2").keypress(function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      $("#submit").click();
+    }
+  });
+</script>
+
+<script>
+  $("#3").keypress(function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      $("#submit").click();
+    }
+  });
+</script>
+
+<script>
+  $("#4").keypress(function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      $("#submit").click();
+    }
+  });
+</script>
+
+<script>
+  $("#5").keypress(function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      $("#submit").click();
+    }
+  });
+</script>
+
+<script>
+  $("#6").keypress(function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      $("#submit").click();
+    }
+  });
+</script>
+
+<script>
+  $("#7").keypress(function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      $("#submit").click();
+    }
+  });
+</script>
+
+<script>
+  $("#8").keypress(function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      $("#submit").click();
+    }
+  });
+</script>
+
+<script>
+  $("#9").keypress(function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      $("#submit").click();
+    }
+  });
+</script>
+
+<script>
+  function checkDifferences(passcodes) {
+    var a1 = "VmxaU1ExSXhWWGhXYWs1UlZrUkJPUT09";
+    var a2 = "Vmxaa01HTXhUa2RVYTFwWFlrVTFWbHBYZUhKUFVUMDk=";
+    var a3 = "Vm10YVlWWXhVbGRTYkZwUFVrUkJPUT09";
+    var a4 = "VmxSQ1YxSXhWWGhXYms1cFVtdGFWbFJXV2t0V2JGWnpWMnR3VVZWVU1Eaz0=";
+    var a5 = "VmxjeE5GTXhWa2RhU0VwWFlYcG5PUT09";
+    var a6 = "VmxaU1EySXhSbk5XYmtwc1VsaENWRlpzVm1GVlJsWnlWMnhPVkZacmNGZFdSM1J6VmxVeFJrNVdSbGRTVmxwSVZteGFTMVpzWkhKVGJFcE9WbXR3VWxac1pEUmpiRUpTVUZRd1BRPT0=";
+    var a7 = "Vm0xMFYxSXhVWGhUV0dSc1VsWndWRlZXVVhkUFVUMDk=";
+    var a8 = "Vm14U1FrNVdVWGhVYkZwVllrWmFWVlZzV21GVGJGWnpWbXhPVkZKcmNGZFpWVnBEVlRKU05rMUVhejA9";
+    var a9 = "VmxaYVYwNUdUbk5TV0dSWFlUTkNWbGxyWkZOVlZscElaRVpPVTJKR1dubGFWVlpMVmxkRmVGSlVhejA9";
+    const answers = [a1, a2, a3, a4, a5, a6, a7, a8, a9];
+  
+    var correct = 0;
+    for (let i = 0; i < 9; i++) {
+      for (let j = 0; j < 9; j++) {
+        var c = sanitiseInput(passcodes[j]);
+        var result = checkAnswer(c, answers[i]);
+        if (result == true) {
+          correct = correct + 1;
+          break;
+        }
+      }
+    }
+    return correct;
+  }
+  </script>
+
+<script>
 function nextPageCheck() {
-  var p = document.getElementById("passcode").value;
-  var a = "CHANGE THIS";
-  var c = p;
-  var c = sanitiseInput(p);
-  var result = checkAnswer(c, a);
-  if (result == true) {
-    location.href = "CHANGE THIS";
+  let num_correct = 0;
+  var p1 = document.getElementById("1").value;
+  var p2 = document.getElementById("2").value;
+  var p3 = document.getElementById("3").value;
+  var p4 = document.getElementById("4").value;
+  var p5 = document.getElementById("5").value;
+  var p6 = document.getElementById("6").value;
+  var p7 = document.getElementById("7").value;
+  var p8 = document.getElementById("8").value;
+  var p9 = document.getElementById("9").value;
+  const passcodes = [p1, p2, p3, p4, p5, p6, p7, p8, p9];
+
+  num_correct = checkDifferences(passcodes);
+  if (num_correct == 9) {
+    var url = "VmxaYVYwNUdUbk5TV0dSWFlUTkNWbGxyWkZOVlZscElaRVpPVTJKR1dubGFWVlpMVmxkRmVGSlVhejA9";
+    for (let i = 0; i < 5; i++) {
+      url = atob(url);
+    }
+    location.href = "../Q23/Q23_" + url + ".html";
+  } else if (num_correct > 1) {
+    alert("You've gotten " + num_correct + " movies correct!");
   } else {
-    alert("CHANGE THIS");
+    alert("You've gotten " + num_correct + " movie correct!");
   };
 }
 </script>

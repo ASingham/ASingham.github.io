@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Switch Web Crawl</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+</style>
+<body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../javascript/check_answer.js"></script>
+<script type="text/javascript" src="../../javascript/fast_travel.js"></script>
+<script type="text/javascript" src="../../javascript/menu_toggle.js"></script>
+<script type="text/javascript" src="../../javascript/sanitise_input.js"></script>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-green w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-left w3-padding-large w3-hover-white w3-large w3-white" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="https://asingham.github.io/" class="w3-bar-item w3-button w3-padding-large w3-white w3-hide-small">Home</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-green w3-hide-small" onclick="fastTravel()">Fast Travel</a>
+    <a class="w3-bar-item w3-padding-large w3-hide-small">Fast Travel Code: <b>Q30_ONEBOREDJEUMASHUP</b></a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="https://asingham.github.io/" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-white" onclick="fastTravel()">Fast Travel</a>
+    <a class="w3-bar-item w3-padding-large">Fast Travel Code: <b>Q30_ONEBOREDJEUMASHUP</b></a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-green w3-center" style="padding:128px 16px">
+  <img src="../../images/switch_web_crawl.png" style="max-width:100%;height:auto;">
+  <h1 class="w3-margin w3-jumbo">THIS IS IT, COMPLETE THE PUZZLE AND SEND IT TO SACHIN TO WIN</h1>
+</header>
+
+<!-- Puzzle -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-half">
+      <h1>An Influencer's Dilemma</h1>
+
+      <p class="w3-text-grey"> At PHBC Switch we don't play around, we are always on that grind trying to be super epic <i>(Definitely the truth)</i>. Anyways, the leaders like to keep things under wraps so that you guys don't get
+        caught up each week by how epic they are. But today's the day that we uncover their secrets! With a few clues that I have I think we can pinpoint exactly how popular each one of our leaders are and what type of account they run!<br><br>
+        Here are the clues:
+        <ol class="w3-text-grey">
+          <li>Julian has 25 million more followers than Justina</li>
+          <li>Between Milli's account and the account with 50m followers, one is the Sunscreen enthusiast account and the other is the rapper</li>
+          <li>The Life Hax account has 50m more followers that the Sunscreen Enthusiast</li>
+          <li>The account with 75m followers is either Justina's account or the Gym Junkie's</li>
+        </ol> 
+      </p>
+    </div>
+
+    <div class="w3-half w3-center">
+      <img src="puzzle.PNG" style="max-width:100%;height:auto;">
+    </div>
+  </div>
+</div>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>Hint!</h1>
+      <h5 class="w3-padding-32">Logic Grid Puzzles</h5>
+
+      <p class="w3-text-grey"> In each logic grid puzzle you are given a series of categories, and an equal number of options within each category. Each option is used once and only once.
+        Your goal is to figure out which options are linked together based on a series of given clues. Each puzzle has only one unique solution, and each can be solved using simple logical processes (i.e. educated guesses are not required).
+        An example is shown being half completed on the right.
+      </p>
+    </div>
+
+    <div class="w3-third w3-center">
+      <img src="example.jpg" style="max-width:100%;height:auto;">
+    </div>
+  </div>
+</div>
+
+<center>
+  <object type="text/html" data="../../html/rules.html" style="width:100%;height:680px;">
+  <p>Rules did not load.</p>
+  </object>
+</center>
+
+<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+    <h1 class="w3-margin w3-xlarge">Quote of the Day: CHANGE THIS</h1>
+</div>
+
+<script>
+  $("#passcode").keypress(function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      $("#submit").click();
+    }
+  });
+</script>
+
+<script>
+function nextPageCheck() {
+  var p = document.getElementById("passcode").value;
+  var a = "CHANGE THIS";
+  var c = p;
+  var c = sanitiseInput(p);
+  var result = checkAnswer(c, a);
+  if (result == true) {
+    location.href = "CHANGE THIS";
+  } else {
+    alert("CHANGE THIS");
+  };
+}
+</script>
+
+</body>
+</html>
