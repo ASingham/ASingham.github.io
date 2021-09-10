@@ -105,8 +105,7 @@ function nextPageCheck() {
   var c = sanitiseInput(p);
   var result = checkAnswer(c, a);
   if (result == true) {
-    url = c.substring(0,2) + c.substring(3,8) + c.substring(9,12) + c.substring(13,16);
-    location.href = "../Q21/Q21_" + url + ".html";
+    location.href = "../Q21/Q21_" + c + ".html";
   } else {
     alert("Not yet young padawan.");
   };
