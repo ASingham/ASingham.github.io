@@ -188,8 +188,10 @@ function nextPageCheck() {
       url = atob(url);
     }
     location.href = "../Q20/Q20_" + url + ".html";
-  } else {
+  } else  if (num_correct == 1) {
     alert("You've gotten " + num_correct + " difference correct!");
+  } else {
+    alert("You've gotten " + num_correct + " differences correct!");
   };
 }
 </script>
